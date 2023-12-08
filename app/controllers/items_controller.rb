@@ -46,7 +46,6 @@ class ItemsController < ApplicationController
 
   def restore
     @soft_deleted_items = Item.unscoped.where.not(deleted_at: nil)
-    Rails.logger.debug("Soft Deleted Items: #{@soft_deleted_items}")
     if @soft_deleted_items.empty?
       flash.now[:notice] = 'No soft-deleted items found.'
     end
