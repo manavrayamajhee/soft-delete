@@ -1,0 +1,22 @@
+<div class="center-container">
+  <h1>Restore Soft-Deleted Items</h1>
+
+  <% if @soft_deleted_items.present? %>
+    <%= form_tag restore_items_path, method: :put do %>
+      <ul>
+        <% @soft_deleted_items.each do |item| %>
+          <li class="restore-item">
+            <%= check_box_tag 'item_ids[]', item.id %>
+            <%= "ID: #{item.id}, Name: #{item.name}" %>
+          </li>
+        <% end %>
+      </ul>
+
+      <%= submit_tag 'Restore Selected Items', class: 'btn btn-primary' %>
+    <% end %>
+  <% else %>
+    <p>No soft-deleted items found.</p>
+  <% end %>
+
+  <%= link_to 'Back to All Items', items_path, class: 'btn btn-secondary' %>
+</div>

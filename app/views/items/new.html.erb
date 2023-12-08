@@ -1,0 +1,22 @@
+<!-- app/views/items/new.html.erb -->
+<div class="center-container">
+  <%= form_with(model: @item, url: items_path, method: :post) do |form| %>
+    <h1 class="form-title">Create New Item</h1>
+
+    <div class="item-form">
+      <div class="form-group">
+        <%= form.label :name, class: 'label' %>
+        <%= form.text_field :name, class: 'input' %>
+      </div>
+
+      <div class="form-group">
+        <%= form.submit 'Create Item', class: 'btn btn-primary' %>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="navigation-links">
+    <%= link_to 'All Items', items_path, class: 'btn btn-secondary' %>
+    <%= link_to 'Restore Soft-Deleted Items', restore_items_path, class: 'btn btn-secondary' %>
+  </div>
+</div>

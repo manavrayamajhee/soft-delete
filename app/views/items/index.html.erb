@@ -1,0 +1,18 @@
+<div class="center-container">
+  <h1>All Items</h1>
+
+  <ul>
+    <% @items.each do |item| %>
+      <li class="item-container">
+        <div class="item-info">
+          <%= "ID: #{item.id}, Name: #{item.name}" %>
+        </div>
+        <div class="delete-btn-container">
+          <%= button_to 'X', soft_delete_item_path(item), method: :put, class: 'delete-btn', data: { confirm: 'Are you sure?' } %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+
+  <%= link_to '<- Back to Restore Soft-Deleted Items', restore_items_path, class: 'btn btn-primary' %>
+</div>
