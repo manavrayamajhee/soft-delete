@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :update, :destroy, :soft_delete, :restore,:restore_items]
+  before_action :set_item, only: [:show, :edit, :update, :destroy, :soft_delete]
   skip_before_action :set_item, only: [:restore, :restore_items]
 
   def index
