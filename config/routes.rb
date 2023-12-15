@@ -3,7 +3,6 @@ root 'items#new'
   resources :items do
     member do
       put 'soft_delete', to: 'items#soft_delete'
-      put 'restore', to: 'items#restore'
     end
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
